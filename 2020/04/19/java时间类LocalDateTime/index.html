@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录，分享，精进">
-<meta property="og:type" content="website">
-<meta property="og:title" content="secre7">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta name="description" content="关于java8新的时间类LocalDate,LocalDateTime的使用     12345678910public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        LocalDate d &#x3D; LocalDate.now(); &#x2F;&#x2F; 当前日期        LocalTime t &#x3D; Local">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java时间类LocalDateTime">
+<meta property="og:url" content="http://yoursite.com/2020/04/19/java%E6%97%B6%E9%97%B4%E7%B1%BBLocalDateTime/index.html">
 <meta property="og:site_name" content="secre7">
-<meta property="og:description" content="记录，分享，精进">
+<meta property="og:description" content="关于java8新的时间类LocalDate,LocalDateTime的使用     12345678910public class Main &amp;#123;    public static void main(String[] args) &amp;#123;        LocalDate d &#x3D; LocalDate.now(); &#x2F;&#x2F; 当前日期        LocalTime t &#x3D; Local">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-19T06:27:53.000Z">
+<meta property="article:modified_time" content="2020-04-19T06:54:14.787Z">
 <meta property="article:author" content="Huang ju">
+<meta property="article:tag" content="基础">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/04/">
+<link rel="canonical" href="http://yoursite.com/2020/04/19/java%E6%97%B6%E9%97%B4%E7%B1%BBLocalDateTime/">
 
 
 <script id="page-configurations">
@@ -38,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | secre7</title>
+  <title>java时间类LocalDateTime | secre7</title>
   
 
 
@@ -142,50 +145,77 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 1 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/java%E6%97%B6%E9%97%B4%E7%B1%BBLocalDateTime/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Huang ju">
+      <meta itemprop="description" content="记录，分享，精进">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="secre7">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java时间类LocalDateTime
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-19 14:27:53 / 修改时间：14:54:14" itemprop="dateCreated datePublished" datetime="2020-04-19T14:27:53+08:00">2020-04-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>关于java8新的时间类LocalDate,LocalDateTime的使用</p>
+<!-- less -->
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LocalDate d = LocalDate.now(); <span class="comment">// 当前日期</span></span><br><span class="line">        LocalTime t = LocalTime.now(); <span class="comment">// 当前时间</span></span><br><span class="line">        LocalDateTime dt = LocalDateTime.now(); <span class="comment">// 当前日期和时间</span></span><br><span class="line">        System.out.println(d); <span class="comment">// 严格按照ISO 8601格式打印</span></span><br><span class="line">        System.out.println(t); <span class="comment">// 严格按照ISO 8601格式打印</span></span><br><span class="line">        System.out.println(dt); <span class="comment">// 严格按照ISO 8601格式打印</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-19T14:27:53+08:00"
-              content="2020-04-19">
-          04-19
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/19/java%E6%97%B6%E9%97%B4%E7%B1%BBLocalDateTime/" itemprop="url">
-            <span itemprop="name">java时间类LocalDateTime</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
